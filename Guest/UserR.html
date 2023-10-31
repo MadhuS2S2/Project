@@ -1,0 +1,93 @@
+<?php
+	include('../Assets/Connection/connection.php');
+	if(isset($_POST['form_sub']))
+	{
+			$name=$_POST['name'];
+			$contact=$_POST['contact'];
+			$email=$_POST['email'];
+			$password=$_POST['password'];
+			$address=$_POST['address'];
+			$district=$_POST['district'];
+			$place=$_POST['place'];
+			
+		$q="insert into tbl_user(Name,Contact,email,password,address,district,place)values ('$name','$contact','$email','$password','$address','$district','$place')";
+		mysql_query($q);
+
+	}
+	
+?>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--link rel='stylesheet' href="style.css"-->
+<title>User</title>
+</head>
+<body>
+	<form  method="post" action="">
+    <table border='1'>
+		<tr>
+       		<td>Name</td>
+       		<td><input type='text' name='name' required/></td>
+     	</tr>
+        <tr>
+       		<td>Contact</td>
+       		<td><input type='text' name='contact' required/></td>
+     	</tr>
+      	<tr>
+       		<td>Email</td>
+       		<td><input type='text' name='email' required/></td>
+     	</tr>
+        <tr>
+       		<td>Password</td>
+       		<td><input type='password' name='password'required /></td>
+     	</tr>
+        <tr>
+       		<td>Address</td>
+       		<td><input type='text' name='address' required/></td>
+     	</tr>
+        <tr>
+    <td>District</td>
+    <td>
+    <select name="district" required>
+    <option value="none" >--Select--</option>
+        <option value="Ernakulam" >Ernakulam</option>
+        <option value="Trissur" >Trissur</option>
+        <option value="Kottayam" >Kottayam</option>
+        <option value="Malapuram" >Malapuram</option>
+        <option value="Idukki" >Idukki</option>
+        <option value="Alapuzha">Alapuzha</option>
+    </select>
+    </td>
+  </tr>
+  <td>Place</td>
+    <td>
+    <select name="place" required>
+    	<option value="none" >--Select--</option>
+        <option value="Muvattupura" >Muvattupura</option>
+        <option value="Aluva" >Aluva</option>
+        <option value="Edapally" >Edapally</option>
+        <option value="Malapuram" >Thodupuzha</option>
+        <option value="Idukki" >Idukki</option>
+        <option value="Alapuzha">Alapuzha</option>
+    </select>
+    </td>
+  </tr>
+  <tr>
+       		<td>Photo</td>
+       		<td><input name="" type="file" /></td>
+     	</tr>
+		
+<strong></strong>
+		 <tr>
+	<td align="center" colspan=2>
+    	<input class='btn' type='submit' name="form_sub" value="Submit"/>
+
+	<input class='btn' type='reset' name="form_sub" value="Cancel"/>
+    </td>
+     </tr>
+    </table>
+    	
+    </form>
+
+</body>
+</html>
